@@ -44,8 +44,13 @@ class CheckoutSolutionTest {
 
   @Test public void checkoutMultipleOffers() {
     assertThat(checkoutSolution.checkout("AAAAAABB"), equalTo(260+45));
+    assertThat(checkoutSolution.checkout("AAABB"), equalTo(130+45));
+    assertThat(checkoutSolution.checkout("AAAAAAA"), equalTo(260+50));
+    assertThat(checkoutSolution.checkout("BBB"), equalTo(45+30));
+    assertThat(checkoutSolution.checkout("BBBC"), equalTo(45+30+20));
   }
 
 }
+
 
 
