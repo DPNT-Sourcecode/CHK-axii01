@@ -28,33 +28,38 @@ public class CheckoutSolution {
     }
     int sum = 0;
 
-    for (Map.Entry<Character, Integer> entry : mapCount.entrySet()) {
-      if (entry.getKey() == 'A') {
-        if (entry.getValue() == 3) {
-          sum += 130;
+    for (Map.Entry<Character, Integer> countEntry : mapCount.entrySet()) {
+      if (countEntry.getKey() == 'A') {
+        if (countEntry.getValue() >= 3) {
+          int offerPrice = countEntry.getValue() / 3 * 130;
+          int restPrice = countEntry.getValue() % 3 * mapPrices.get('A');
+          sum += offerPrice + restPrice;
         } else
-          sum += entry.getValue() * mapPrices.get('A');
+          sum += countEntry.getValue() * mapPrices.get('A');
       }
 
-      if (entry.getKey() == 'B') {
-        if (entry.getValue() == 2) {
-          sum += 45;
+      if (countEntry.getKey() == 'B') {
+        if (countEntry.getValue() >= 2) {
+          int offerPrice = countEntry.getValue() / 2 * 45;
+          int restPrice = countEntry.getValue() % 2 * mapPrices.get('B');
+          sum += offerPrice + restPrice;
         } else
-          sum += entry.getValue() * mapPrices.get('B');
+          sum += countEntry.getValue() * mapPrices.get('B');
       }
 
-      if (entry.getKey() == 'C') {
-        sum += entry.getValue() * mapPrices.get('C');
+      if (countEntry.getKey() == 'C') {
+        sum += countEntry.getValue() * mapPrices.get('C');
       }
 
-      if (entry.getKey() == 'D') {
-        sum += entry.getValue() * mapPrices.get('D');
+      if (countEntry.getKey() == 'D') {
+        sum += countEntry.getValue() * mapPrices.get('D');
       }
     }
 
     return sum;
   }
 }
+
 
 
 

@@ -18,7 +18,7 @@ class CheckoutSolutionTest {
     assertThat(checkoutSolution.checkout("ABC"), equalTo(100));
   }
 
-  @Test public void checkout2() {
+  @Test public void checkoutAllSimple() {
     assertThat(checkoutSolution.checkout("ABCA"), equalTo(150));
   }
 
@@ -42,5 +42,10 @@ class CheckoutSolutionTest {
     assertThat(checkoutSolution.checkout("AAABB"), equalTo(175));
   }
 
+  @Test public void checkoutMultipleOffers() {
+    assertThat(checkoutSolution.checkout("AAAAAABB"), equalTo(260+45));
+  }
+
 }
+
 
