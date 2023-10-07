@@ -1,6 +1,7 @@
 package befaster.solutions.CHK;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class CheckoutSolution {
   public Integer checkout(String skus) {
@@ -27,11 +28,33 @@ public class CheckoutSolution {
     }
     int sum = 0;
 
-    for ()
+    for (Map.Entry<Character, Integer> entry : mapCount.entrySet()) {
+      if (entry.getKey() == 'A') {
+        if (entry.getValue() == 3) {
+          sum += 130;
+        } else
+          sum += entry.getValue() * mapPrices.get('A');
+      }
+
+      if (entry.getKey() == 'B') {
+        if (entry.getValue() == 2) {
+          sum += 45;
+        } else
+          sum += entry.getValue() * mapPrices.get('B');
+      }
+
+      if (entry.getKey() == 'C') {
+        sum += entry.getValue() * mapPrices.get('C');
+      }
+
+      if (entry.getKey() == 'D') {
+        sum += entry.getValue() * mapPrices.get('D');
+      }
+    }
 
     return sum;
-
   }
 }
+
 
 
