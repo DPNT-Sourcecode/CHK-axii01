@@ -76,7 +76,9 @@ class CheckoutSolutionTest {
 
   @Test public void checkoutMultipleGroupOffers() {
     assertThat(checkoutSolution.checkout("XYZXYZ"), equalTo(45+45));
+    assertThat(checkoutSolution.checkout("XYZXYZS"), equalTo(45+45+20));
   }
 
 }
+
 

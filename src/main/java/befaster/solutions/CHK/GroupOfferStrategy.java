@@ -29,8 +29,9 @@ public class GroupOfferStrategy implements Strategy {
         if (countToRemove > 0) {
           Integer count = itemToCount.get(item);
           if (count != null && count > 0) {
-            itemToCount.put(item, count - 1);
-            countToRemove--;
+            int toRemove = Math.min(count, countToRemove);
+            itemToCount.put(item, count - toRemove);
+            countToRemove -= toRemove;
           }
         } else
           break;
@@ -39,6 +40,7 @@ public class GroupOfferStrategy implements Strategy {
     return price;
   }
 }
+
 
 
 
