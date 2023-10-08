@@ -3,9 +3,9 @@ package befaster.solutions.CHK;
 import java.util.HashMap;
 
 public class FreeItemStrategy implements Strategy {
-  String itemName;
-  int numOfItems;
-  String freeItemName;
+  private final String itemName;
+  private final int numOfItems;
+  private final String freeItemName;
 
   public FreeItemStrategy(String ItemName, int numOfItemNames, String freeItemName) {
     this.itemName = ItemName;
@@ -22,3 +22,4 @@ public class FreeItemStrategy implements Strategy {
     return 0;
   }
 }
+

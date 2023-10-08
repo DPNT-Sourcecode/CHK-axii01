@@ -4,9 +4,9 @@ import java.util.HashMap;
 
 public class DiscountStrategy implements Strategy {
 
-  String itemName;
-  int numOfItems;
-  int discountedPrice;
+  private final String itemName;
+  private final int numOfItems;
+  private final int discountedPrice;
 
   public DiscountStrategy(String itemName, int numOfItems, int discountedPrice) {
     this.itemName = itemName;
@@ -26,3 +26,4 @@ public class DiscountStrategy implements Strategy {
     return price;
   }
 }
+
