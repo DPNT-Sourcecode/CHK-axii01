@@ -17,7 +17,7 @@ public class NormalPriceStrategy implements Strategy {
     itemToPrice.put("H", 10);
     itemToPrice.put("I", 35);
     itemToPrice.put("J", 60);
-    itemToPrice.put("K", 80);
+    itemToPrice.put("K", 70);
     itemToPrice.put("L", 90);
     itemToPrice.put("M", 15);
     itemToPrice.put("N", 40);
@@ -45,4 +45,5 @@ public class NormalPriceStrategy implements Strategy {
     return sum;
   }
 }
+
 
