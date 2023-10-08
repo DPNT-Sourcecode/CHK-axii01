@@ -14,13 +14,13 @@ public class FreeItemStrategy implements Strategy {
   }
 
   @Override public int apply(HashMap<String, Integer> itemToCount) {
-    if (itemToCount.containsKey(itemName)) {
+    if (itemToCount.containsKey(itemName) && itemToCount.containsKey(freeItemName)) {
       Integer itemCount = itemToCount.get(itemName);
       int freeItemCount = itemToCount.get(freeItemName);
-
       itemToCount.put(freeItemName, itemToCount.get(freeItemName) - Math.min((itemCount / numOfItems), freeItemCount));
     }
     return 0;
   }
 }
+
 

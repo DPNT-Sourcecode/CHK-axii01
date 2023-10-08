@@ -29,7 +29,7 @@ class CheckoutSolutionTest {
   }
 
   @Test public void checkoutWrong() {
-    assertThat(checkoutSolution.checkout("CDX"), equalTo(-1));
+    assertThat(checkoutSolution.checkout("CDa-"), equalTo(-1));
   }
 
   @Test public void checkoutOffers() {
@@ -69,3 +69,4 @@ class CheckoutSolutionTest {
   }
 
 }
+
