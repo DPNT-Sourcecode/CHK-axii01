@@ -32,7 +32,7 @@ public class CheckoutSolution {
       if (!"ABCD".contains(String.valueOf(current))) {
         return -1;
       }
-      itemToAmountMap.put(current, itemToAmountMap.get(current) + 1);
+//      itemToAmountMap.put(current, itemToAmountMap.get(A) + 1);
     }
     int sum = 0;
 
@@ -56,7 +56,7 @@ public class CheckoutSolution {
       }
       mapCount.put(current, mapCount.get(current) + 1);
     }
-    int sum = 0;
+//    int sum = 0;
 
     for (Map.Entry<Character, Integer> countEntry : mapCount.entrySet()) {
       if (countEntry.getKey() == 'A') {
@@ -89,6 +89,7 @@ public class CheckoutSolution {
     return sum;
   }
 }
+
 
 
 
