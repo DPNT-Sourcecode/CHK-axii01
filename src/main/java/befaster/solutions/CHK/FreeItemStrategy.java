@@ -13,18 +13,6 @@ public class FreeItemStrategy implements Strategy {
     this.freeItemName = freeItemName;
   }
 
-  public String getItemName() {
-    return itemName;
-  }
-
-  public int getNumOfItems() {
-    return numOfItems;
-  }
-
-  public String getFreeItemName() {
-    return freeItemName;
-  }
-
   @Override public int apply(HashMap<String, Integer> itemToCount) {
     Integer itemCount = itemToCount.get(itemName);
     int freeItemCount = itemToCount.get(freeItemName);
@@ -32,5 +20,6 @@ public class FreeItemStrategy implements Strategy {
     return 0;
   }
 }
+
 
 
