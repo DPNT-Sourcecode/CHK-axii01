@@ -6,6 +6,21 @@ import java.util.Map;
 public class CheckoutSolution {
   public Integer checkout(String skus) {
     StringBuilder str = new StringBuilder(skus);
+    Item itemA = new Item('A', 50);
+    Item itemB = new Item('B', 30);
+    Item itemC = new Item('C', 20);
+    Item itemD = new Item('D', 15);
+    Item itemE = new Item('E', 40);
+
+    DiscountStrategy discountStrategy1 = new DiscountStrategy(itemA, 2, 130);
+    DiscountStrategy discountStrategy2 = new DiscountStrategy(itemA, 5, 200);
+    DiscountStrategy discountStrategy3 = new DiscountStrategy(itemB, 2, 45);
+
+    FreeItemStrategy freeItemStrategy = new FreeItemStrategy(itemE, )
+
+
+
+
 
     HashMap<Character, Integer> mapPrices = new HashMap<>();
     mapPrices.put('A', 50);
@@ -59,4 +74,5 @@ public class CheckoutSolution {
     return sum;
   }
 }
+
 

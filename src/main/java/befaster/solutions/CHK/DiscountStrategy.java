@@ -5,7 +5,11 @@ public class DiscountStrategy {
   int numOfItems;
   int discountedPrice;
 
-
+  public DiscountStrategy(Item item, int numOfItems, int discountedPrice) {
+    this.item = item;
+    this.numOfItems = numOfItems;
+    this.discountedPrice = discountedPrice;
+  }
 
   public Item getItem() {
     return item;
@@ -19,4 +23,5 @@ public class DiscountStrategy {
     return discountedPrice;
   }
 }
+
 
