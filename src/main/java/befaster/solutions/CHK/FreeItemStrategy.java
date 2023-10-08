@@ -22,5 +22,3 @@ public class FreeItemStrategy implements Strategy {
     return 0;
   }
 }
-
-

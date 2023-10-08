@@ -45,4 +45,3 @@ public class NormalPriceStrategy implements Strategy {
     return sum;
   }
 }
-
