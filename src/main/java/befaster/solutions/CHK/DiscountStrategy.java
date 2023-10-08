@@ -15,11 +15,15 @@ public class DiscountStrategy implements Strategy {
   }
 
   @Override public int apply(HashMap<String, Integer> itemToCount) {
-    Integer itemCount = itemToCount.get(itemName);
-    int numDiscountedItems = itemCount / numOfItems;
-    int price = numDiscountedItems * discountedPrice;
-    int normalPriceItems = itemCount % numOfItems;
-    itemToCount.put(itemName, normalPriceItems);
+    int price = 0;
+    if (itemToCount.containsKey(itemName)) {
+      Integer itemCount = itemToCount.get(itemName);
+      int numDiscountedItems = itemCount / numOfItems;
+      price = numDiscountedItems * discountedPrice;
+      int normalPriceItems = itemCount % numOfItems;
+      itemToCount.put(itemName, normalPriceItems);
+    }
     return price;
   }
 }
+
