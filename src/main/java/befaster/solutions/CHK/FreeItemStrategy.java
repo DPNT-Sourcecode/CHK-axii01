@@ -23,4 +23,3 @@ public class FreeItemStrategy {
     return freeItemName;
   }
 }
-

@@ -24,4 +24,3 @@ public class DiscountStrategy {
     return discountedPrice;
   }
 }
-
