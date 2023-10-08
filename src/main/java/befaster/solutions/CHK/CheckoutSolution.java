@@ -14,11 +14,6 @@ public class CheckoutSolution {
     itemToPrice.put("D", 15);
     itemToPrice.put("E", 40);
   }
-  //  private static final Item itemA = new Item(A, 50);
-  //  private static final Item itemB = new Item(B, 30);
-  //  private static final Item itemC = new Item(C, 20);
-  //  private static final Item itemD = new Item(D, 15);
-  //  private static final Item itemE = new Item(E, 40);
 
   private static final DiscountStrategy discountStrategy1 = new DiscountStrategy("A", 3, 130);
   private static final DiscountStrategy discountStrategy2 = new DiscountStrategy("A", 5, 200);
@@ -65,17 +60,17 @@ public class CheckoutSolution {
     itemToCount.put("E", 0);
     for (int i = 0; i < skus.length(); i++) {
       String currentItem = String.valueOf(str.charAt(i));
-      if (!"ABCD".contains(currentItem)) {
+      if (itemToCount.get(currentItem) == null) {
         return -1;
       }
       itemToCount.put(currentItem, itemToCount.get(currentItem) + 1);
     }
 
     int sum = 0;
+    applyFreeItemStrategy(itemToCount, freeItemStrategy);
     for (DiscountStrategy discountStrategy : discountStrategies) {
       sum += applyDiscountStrategy(itemToCount, discountStrategy);
     }
-    applyFreeItemStrategy(itemToCount, freeItemStrategy);
     return sum + applyNormalPrice(itemToCount);
 
     //    for (Map.Entry<Character, Integer> countEntry : mapCount.entrySet()) {
@@ -90,5 +85,6 @@ public class CheckoutSolution {
     //    return sum;
   }
 }
+
 
 
