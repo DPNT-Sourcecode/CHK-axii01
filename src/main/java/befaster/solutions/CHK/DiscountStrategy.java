@@ -1,18 +1,19 @@
 package befaster.solutions.CHK;
 
 public class DiscountStrategy {
-  Item item;
+
+  ItemName itemName;
   int numOfItems;
   int discountedPrice;
 
-  public DiscountStrategy(Item item, int numOfItems, int discountedPrice) {
-    this.item = item;
+  public DiscountStrategy(ItemName itemName, int numOfItems, int discountedPrice) {
+    this.itemName = itemName;
     this.numOfItems = numOfItems;
     this.discountedPrice = discountedPrice;
   }
 
-  public Item getItem() {
-    return item;
+  public ItemName getItemName() {
+    return itemName;
   }
 
   public int getNumOfItems() {
@@ -23,5 +24,6 @@ public class DiscountStrategy {
     return discountedPrice;
   }
 }
+
 
 

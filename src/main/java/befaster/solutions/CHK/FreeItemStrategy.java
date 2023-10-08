@@ -1,26 +1,27 @@
 package befaster.solutions.CHK;
 
 public class FreeItemStrategy {
-  Item item;
-  int numOfItems;
-  Item freeItem;
+  ItemName ItemName;
+  int numOfItemNames;
+  ItemName freeItemName;
 
-  public FreeItemStrategy(Item item, int numOfItems, Item freeItem) {
-    this.item = item;
-    this.numOfItems = numOfItems;
-    this.freeItem = freeItem;
+  public FreeItemStrategy(ItemName ItemName, int numOfItemNames, ItemName freeItemName) {
+    this.ItemName = ItemName;
+    this.numOfItemNames = numOfItemNames;
+    this.freeItemName = freeItemName;
   }
 
-  public Item getItem() {
-    return item;
+  public ItemName getItemName() {
+    return ItemName;
   }
 
-  public int getNumOfItems() {
-    return numOfItems;
+  public int getNumOfItemNames() {
+    return numOfItemNames;
   }
 
-  public Item getFreeItem() {
-    return freeItem;
+  public ItemName getFreeItemName() {
+    return freeItemName;
   }
 }
+
 

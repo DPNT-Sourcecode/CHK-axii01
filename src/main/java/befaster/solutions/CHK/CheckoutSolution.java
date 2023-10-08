@@ -1,25 +1,40 @@
 package befaster.solutions.CHK;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import static befaster.solutions.CHK.ItemName.A;
+import static befaster.solutions.CHK.ItemName.B;
+import static befaster.solutions.CHK.ItemName.C;
+import static befaster.solutions.CHK.ItemName.D;
+import static befaster.solutions.CHK.ItemName.E;
+
 public class CheckoutSolution {
+
+  private static final Item itemA = new Item(A, 50);
+  private static final Item itemB = new Item(B, 30);
+  private static final Item itemC = new Item(C, 20);
+  private static final Item itemD = new Item(D, 15);
+  private static final Item itemE = new Item(E, 40);
+
+  private static final DiscountStrategy discountStrategy1 = new DiscountStrategy(A, 2, 130);
+  private static final DiscountStrategy discountStrategy2 = new DiscountStrategy(A, 5, 200);
+  private static final DiscountStrategy discountStrategy3 = new DiscountStrategy(B, 2, 45);
+  private static final FreeItemStrategy freeItemStrategy = new FreeItemStrategy(E, 2, B);
+
   public Integer checkout(String skus) {
     StringBuilder str = new StringBuilder(skus);
-    Item itemA = new Item('A', 50);
-    Item itemB = new Item('B', 30);
-    Item itemC = new Item('C', 20);
-    Item itemD = new Item('D', 15);
-    Item itemE = new Item('E', 40);
+    HashMap<ItemName, Integer> itemToAmountMap = new HashMap<>();
 
-    DiscountStrategy discountStrategy1 = new DiscountStrategy(itemA, 2, 130);
-    DiscountStrategy discountStrategy2 = new DiscountStrategy(itemA, 5, 200);
-    DiscountStrategy discountStrategy3 = new DiscountStrategy(itemB, 2, 45);
-
-    FreeItemStrategy freeItemStrategy = new FreeItemStrategy(itemE, )
-
-
-
+    for (int i = 0; i < skus.length(); i++) {
+      char current = str.charAt(i);
+      if (!"ABCD".contains(String.valueOf(current))) {
+        return -1;
+      }
+      itemToAmountMap.put(current, itemToAmountMap.get(current) + 1);
+    }
+    int sum = 0;
 
 
     HashMap<Character, Integer> mapPrices = new HashMap<>();
@@ -74,5 +89,6 @@ public class CheckoutSolution {
     return sum;
   }
 }
+
 
 
