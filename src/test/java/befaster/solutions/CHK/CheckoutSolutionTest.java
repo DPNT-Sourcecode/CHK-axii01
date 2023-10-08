@@ -58,6 +58,9 @@ class CheckoutSolutionTest {
   @Test public void checkoutFreeItem() {
     assertThat(checkoutSolution.checkout("BBEE"), equalTo(30+80));
     assertThat(checkoutSolution.checkout("BBEEB"), equalTo(45+80));
+    assertThat(checkoutSolution.checkout("FF"), equalTo(10));
+    assertThat(checkoutSolution.checkout("FFFFF"), equalTo(30));
+    assertThat(checkoutSolution.checkout("AFF"), equalTo(50+10));
   }
 
   @Test public void checkoutEmpty() {
@@ -65,3 +68,4 @@ class CheckoutSolutionTest {
   }
 
 }
+

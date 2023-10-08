@@ -13,7 +13,7 @@ public class DiscountStrategy implements Strategy {
     this.numOfItems = numOfItems;
     this.discountedPrice = discountedPrice;
   }
-  
+
   @Override public int apply(HashMap<String, Integer> itemToCount) {
     Integer itemCount = itemToCount.get(itemName);
     int numDiscountedItems = itemCount / numOfItems;
@@ -23,6 +23,7 @@ public class DiscountStrategy implements Strategy {
     return price;
   }
 }
+
 
 
 
