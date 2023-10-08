@@ -1,17 +1,17 @@
 package befaster.solutions.CHK;
 
 public class FreeItemStrategy {
-  ItemName ItemName;
+  String ItemName;
   int numOfItemNames;
-  ItemName freeItemName;
+  String freeItemName;
 
-  public FreeItemStrategy(ItemName ItemName, int numOfItemNames, ItemName freeItemName) {
+  public FreeItemStrategy(String ItemName, int numOfItemNames, String freeItemName) {
     this.ItemName = ItemName;
     this.numOfItemNames = numOfItemNames;
     this.freeItemName = freeItemName;
   }
 
-  public ItemName getItemName() {
+  public String getItemName() {
     return ItemName;
   }
 
@@ -19,7 +19,8 @@ public class FreeItemStrategy {
     return numOfItemNames;
   }
 
-  public ItemName getFreeItemName() {
+  public String getFreeItemName() {
     return freeItemName;
   }
 }
+

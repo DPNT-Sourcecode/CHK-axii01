@@ -18,14 +18,14 @@ public class CheckoutSolution {
   private static final Item itemD = new Item(D, 15);
   private static final Item itemE = new Item(E, 40);
 
-  private static final DiscountStrategy discountStrategy1 = new DiscountStrategy(A, 2, 130);
-  private static final DiscountStrategy discountStrategy2 = new DiscountStrategy(A, 5, 200);
-  private static final DiscountStrategy discountStrategy3 = new DiscountStrategy(B, 2, 45);
-  private static final FreeItemStrategy freeItemStrategy = new FreeItemStrategy(E, 2, B);
+  private static final DiscountStrategy discountStrategy1 = new DiscountStrategy("A", 3, 130);
+  private static final DiscountStrategy discountStrategy2 = new DiscountStrategy("A", 5, 200);
+  private static final DiscountStrategy discountStrategy3 = new DiscountStrategy("B", 2, 45);
+  private static final FreeItemStrategy freeItemStrategy = new FreeItemStrategy("E", 2, "B");
 
   public Integer checkout(String skus) {
     StringBuilder str = new StringBuilder(skus);
-    HashMap<ItemName, Integer> itemToAmountMap = new HashMap<>();
+    HashMap<String, Integer> itemToAmountMap = new HashMap<>();
 
     for (int i = 0; i < skus.length(); i++) {
       char current = str.charAt(i);
@@ -89,4 +89,5 @@ public class CheckoutSolution {
     return sum;
   }
 }
+
 

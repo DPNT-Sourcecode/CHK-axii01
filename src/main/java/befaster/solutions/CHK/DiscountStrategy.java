@@ -2,17 +2,17 @@ package befaster.solutions.CHK;
 
 public class DiscountStrategy {
 
-  ItemName itemName;
+  String itemName;
   int numOfItems;
   int discountedPrice;
 
-  public DiscountStrategy(ItemName itemName, int numOfItems, int discountedPrice) {
+  public DiscountStrategy(String itemName, int numOfItems, int discountedPrice) {
     this.itemName = itemName;
     this.numOfItems = numOfItems;
     this.discountedPrice = discountedPrice;
   }
 
-  public ItemName getItemName() {
+  public String getItemName() {
     return itemName;
   }
 
@@ -24,3 +24,4 @@ public class DiscountStrategy {
     return discountedPrice;
   }
 }
+
