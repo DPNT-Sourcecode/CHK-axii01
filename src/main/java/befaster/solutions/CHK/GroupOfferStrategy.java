@@ -25,9 +25,11 @@ public class GroupOfferStrategy implements Strategy {
     }
     if (totalItems >= numOfItems) {
       price = totalItems / numOfItems * discountedPrice;
+      int countToRemove = totalItems - totalItems % numOfItems;
       
     }
     return price;
   }
 }
+
 
