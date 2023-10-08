@@ -32,8 +32,19 @@ public class CheckoutSolution {
     Integer itemCount = itemToCount.get(itemName);
     int numDiscountedItems = itemCount / discountStrategy.numOfItems;
     discountedPrice += numDiscountedItems * discountStrategy.discountedPrice;
-//    int normalPrice = itemCount % discountStrategy.numOfItems * itemToPrice.get(itemName);
+    int normalPriceItems = itemCount % discountStrategy.numOfItems;
+    itemToCount.put(itemName, normalPriceItems);
+    return discountedPrice;
+  }
 
+  private int applyFreeItemStrategy(HashMap<String, Integer> itemToCount, FreeItemStrategy freeItemStrategy) {
+    int discountedPrice = 0;
+    String itemName = freeItemStrategy.getItemName();
+    Integer itemCount = itemToCount.get(itemName);
+    int numDiscountedItems = itemCount / freeItemStrategy.numOfItems;
+    discountedPrice += numDiscountedItems * freeItemStrategy.discountedPrice;
+    int normalPriceItems = itemCount % freeItemStrategy.numOfItems;
+    itemToCount.put(itemName, normalPriceItems);
     return discountedPrice;
   }
 
@@ -52,6 +63,7 @@ public class CheckoutSolution {
     for (DiscountStrategy discountStrategy : discountStrategies) {
       sum += applyDiscountStrategy(itemToCount, discountStrategy);
     }
+
     //    sum += applyPriceStrategy(itemToCount, discountStrategy);
 
     //    for (Map.Entry<Character, Integer> countEntry : mapCount.entrySet()) {
@@ -85,6 +97,7 @@ public class CheckoutSolution {
     return sum;
   }
 }
+
 
 
 
