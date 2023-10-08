@@ -8,10 +8,11 @@ public class CheckoutSolution {
   private static final DiscountStrategy discountStrategy1 = new DiscountStrategy("A", 5, 200);
   private static final DiscountStrategy discountStrategy2 = new DiscountStrategy("A", 3, 130);
   private static final DiscountStrategy discountStrategy3 = new DiscountStrategy("B", 2, 45);
+  private static final DiscountStrategy discountStrategy4 = new DiscountStrategy("F", 3, 20);
   private static final FreeItemStrategy freeItemStrategy1 = new FreeItemStrategy("E", 2, "B");
-  private static final FreeItemStrategy freeItemStrategy2 = new FreeItemStrategy("F", 2, "F");
-  private static final List<Strategy> allStrategies = List.of(freeItemStrategy1, freeItemStrategy2, discountStrategy1,
-      discountStrategy2, discountStrategy3, new NormalPriceStrategy());
+//  private static final FreeItemStrategy freeItemStrategy2 = new FreeItemStrategy("F", 2, "F");
+  private static final List<Strategy> allStrategies = List.of(freeItemStrategy1, discountStrategy1,
+      discountStrategy2, discountStrategy3, discountStrategy4, new NormalPriceStrategy());
 
   public Integer checkout(String skus) {
     StringBuilder str = new StringBuilder(skus);
@@ -33,6 +34,7 @@ public class CheckoutSolution {
     return allStrategies.stream().mapToInt(strategy -> strategy.apply(itemToCount)).sum();
   }
 }
+
 
 
 
