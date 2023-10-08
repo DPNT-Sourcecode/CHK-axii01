@@ -10,7 +10,7 @@ public class CheckoutSolution {
       new DiscountStrategy("U", 4, 120), new DiscountStrategy("H", 10, 80), new DiscountStrategy("H", 5, 45),
       new DiscountStrategy("K", 2, 150), new DiscountStrategy("P", 5, 200), new DiscountStrategy("Q", 3, 80),
       new DiscountStrategy("V", 3, 130), new DiscountStrategy("V", 2, 90),
-      new GroupOfferStrategy(List.of("S", "T", "X", "Y", "Z"), 3, 45), new NormalPriceStrategy());
+      new GroupOfferStrategy(List.of("Z", "T", "S", "Y", "X"), 3, 45), new NormalPriceStrategy());
 
   public Integer checkout(String skus) {
     StringBuilder str = new StringBuilder(skus);
@@ -31,5 +31,4 @@ public class CheckoutSolution {
     return allStrategies.stream().mapToInt(strategy -> strategy.apply(itemToCount)).sum();
   }
 }
-
 

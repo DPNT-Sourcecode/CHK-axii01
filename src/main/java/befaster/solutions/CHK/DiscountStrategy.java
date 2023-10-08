@@ -26,4 +26,3 @@ public class DiscountStrategy implements Strategy {
     return price;
   }
 }
-

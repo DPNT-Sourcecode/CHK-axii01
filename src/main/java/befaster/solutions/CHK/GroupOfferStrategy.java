@@ -40,8 +40,3 @@ public class GroupOfferStrategy implements Strategy {
     return price;
   }
 }
-
-
-
-
-
