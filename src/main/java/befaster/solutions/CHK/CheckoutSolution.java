@@ -37,7 +37,10 @@ public class CheckoutSolution {
     String itemName = freeItemStrategy.getItemName();
     Integer itemCount = itemToCount.get(itemName);
     String freeItem = freeItemStrategy.getFreeItemName();
-    itemToCount.put(freeItem, itemToCount.get(freeItem) - (itemCount / freeItemStrategy.numOfItems));
+    int freeItemCount = itemToCount.get(freeItem);
+    itemToCount.put(freeItem,
+        itemToCount.get(freeItem) - Math.min((itemCount / freeItemStrategy.numOfItems), freeItemCount));
+
   }
 
   private int applyNormalPrice(HashMap<String, Integer> itemToCount) {
@@ -74,6 +77,7 @@ public class CheckoutSolution {
     return sum + applyNormalPrice(itemToCount);
   }
 }
+
 
 
 
