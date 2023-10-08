@@ -11,6 +11,8 @@ import static befaster.solutions.CHK.ItemName.D;
 import static befaster.solutions.CHK.ItemName.E;
 
 public class CheckoutSolution {
+  private static final HashMap<String, Integer> itemToPrice = Map.of("A", 50);
+
 
   private static final Item itemA = new Item(A, 50);
   private static final Item itemB = new Item(B, 30);
@@ -89,5 +91,6 @@ public class CheckoutSolution {
     return sum;
   }
 }
+
 
 
