@@ -66,25 +66,15 @@ public class CheckoutSolution {
       itemToCount.put(currentItem, itemToCount.get(currentItem) + 1);
     }
 
-    int sum = 0;
     applyFreeItemStrategy(itemToCount, freeItemStrategy);
+    int sum = 0;
     for (DiscountStrategy discountStrategy : discountStrategies) {
       sum += applyDiscountStrategy(itemToCount, discountStrategy);
     }
     return sum + applyNormalPrice(itemToCount);
-
-    //    for (Map.Entry<Character, Integer> countEntry : mapCount.entrySet()) {
-    //      if (countEntry.getKey() == 'A') {
-    //        if (countEntry.getValue() >= 3) {
-    //          int offerPrice = countEntry.getValue() / 3 * 130;
-    //          int restPrice = countEntry.getValue() % 3 * mapPrices.get('A');
-    //          sum += offerPrice + restPrice;
-    //        } else
-    //          sum += countEntry.getValue() * mapPrices.get('A');
-    //      }
-    //    return sum;
   }
 }
+
 
 
 
