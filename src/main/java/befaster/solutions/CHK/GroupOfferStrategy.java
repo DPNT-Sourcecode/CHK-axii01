@@ -2,7 +2,6 @@ package befaster.solutions.CHK;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class GroupOfferStrategy implements Strategy {
   private final List<String> itemNames;
@@ -40,6 +39,7 @@ public class GroupOfferStrategy implements Strategy {
     return price;
   }
 }
+
 
 
 
