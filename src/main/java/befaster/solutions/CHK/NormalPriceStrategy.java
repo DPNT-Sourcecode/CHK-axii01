@@ -25,14 +25,14 @@ public class NormalPriceStrategy implements Strategy {
     itemToPrice.put("P", 50);
     itemToPrice.put("Q", 30);
     itemToPrice.put("R", 50);
-    itemToPrice.put("S", 30);
+    itemToPrice.put("S", 20);
     itemToPrice.put("T", 20);
     itemToPrice.put("U", 40);
     itemToPrice.put("V", 50);
     itemToPrice.put("W", 20);
-    itemToPrice.put("X", 90);
-    itemToPrice.put("Y", 10);
-    itemToPrice.put("Z", 50);
+    itemToPrice.put("X", 17);
+    itemToPrice.put("Y", 20);
+    itemToPrice.put("Z", 21);
   }
 
   @Override public int apply(HashMap<String, Integer> itemToCount) {
@@ -45,3 +45,4 @@ public class NormalPriceStrategy implements Strategy {
     return sum;
   }
 }
+
