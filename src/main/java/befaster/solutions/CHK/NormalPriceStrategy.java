@@ -3,7 +3,7 @@ package befaster.solutions.CHK;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NormalPriceStrategy {
+public class NormalPriceStrategy implements Strategy {
   private static final HashMap<String, Integer> itemToPrice = new HashMap<>();
 
   static {
@@ -15,7 +15,7 @@ public class NormalPriceStrategy {
     itemToPrice.put("F", 10);
   }
 
-  public static int applyStrategy(HashMap<String, Integer> itemToCount) {
+  @Override public int apply(HashMap<String, Integer> itemToCount) {
     int sum = 0;
     for (Map.Entry<String, Integer> entry : itemToCount.entrySet()) {
       String itemName = entry.getKey();
@@ -25,4 +25,5 @@ public class NormalPriceStrategy {
     return sum;
   }
 }
+
 

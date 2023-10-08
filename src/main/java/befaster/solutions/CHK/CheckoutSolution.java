@@ -73,19 +73,17 @@ public class CheckoutSolution {
       itemToCount.put(currentItem, itemToCount.get(currentItem) + 1);
     }
 
-    //    applyFreeItemStrategy(itemToCount, freeItemStrategy1);
-    //    applyFreeItemStrategy(itemToCount, freeItemStrategy2);
-
     for (FreeItemStrategy freeItemStrategy : freeItemStrategies) {
-      freeItemStrategy.applyStrategy(itemToCount);
+      freeItemStrategy.apply(itemToCount);
     }
     int sum = 0;
     for (DiscountStrategy discountStrategy : discountStrategies) {
-      sum += discountStrategy.applyStrategy(itemToCount);
+      sum += discountStrategy.apply(itemToCount);
     }
-    return sum + NormalPriceStrategy.applyStrategy(itemToCount);
+    return sum + NormalPriceStrategy.apply(itemToCount);
   }
 }
+
 
 
 

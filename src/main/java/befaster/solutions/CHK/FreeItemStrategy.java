@@ -2,7 +2,7 @@ package befaster.solutions.CHK;
 
 import java.util.HashMap;
 
-public class FreeItemStrategy {
+public class FreeItemStrategy implements Strategy {
   String itemName;
   int numOfItems;
   String freeItemName;
@@ -25,10 +25,12 @@ public class FreeItemStrategy {
     return freeItemName;
   }
 
-  public void applyStrategy(HashMap<String, Integer> itemToCount) {
+  @Override public int apply(HashMap<String, Integer> itemToCount) {
     Integer itemCount = itemToCount.get(itemName);
     int freeItemCount = itemToCount.get(freeItemName);
     itemToCount.put(freeItemName, itemToCount.get(freeItemName) - Math.min((itemCount / numOfItems), freeItemCount));
+    return 0;
   }
 }
+
 

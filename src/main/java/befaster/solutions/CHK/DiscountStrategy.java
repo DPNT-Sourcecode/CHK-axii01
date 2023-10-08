@@ -2,7 +2,7 @@ package befaster.solutions.CHK;
 
 import java.util.HashMap;
 
-public class DiscountStrategy {
+public class DiscountStrategy implements Strategy {
 
   String itemName;
   int numOfItems;
@@ -26,7 +26,7 @@ public class DiscountStrategy {
     return discountedPrice;
   }
 
-  public int applyStrategy(HashMap<String, Integer> itemToCount) {
+  @Override public int apply(HashMap<String, Integer> itemToCount) {
     Integer itemCount = itemToCount.get(itemName);
     int numDiscountedItems = itemCount / numOfItems;
     int price = numDiscountedItems * discountedPrice;
@@ -35,4 +35,5 @@ public class DiscountStrategy {
     return price;
   }
 }
+
 

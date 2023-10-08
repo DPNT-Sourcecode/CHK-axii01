@@ -1,2 +1,8 @@
-package befaster.solutions.CHK;public class Strategy {
+package befaster.solutions.CHK;
+
+import java.util.HashMap;
+
+public interface Strategy {
+  int apply(HashMap<String, Integer> itemToCount);
 }
+
