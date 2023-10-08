@@ -2,6 +2,7 @@ package befaster.solutions.CHK;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CheckoutSolution {
   private static final HashMap<String, Integer> itemToPrice = new HashMap<>();
@@ -10,7 +11,7 @@ public class CheckoutSolution {
     itemToPrice.put("A", 50);
     itemToPrice.put("B", 30);
     itemToPrice.put("C", 20);
-    itemToPrice.put("D", 16);
+    itemToPrice.put("D", 15);
     itemToPrice.put("E", 40);
   }
   //  private static final Item itemA = new Item(A, 50);
@@ -37,20 +38,31 @@ public class CheckoutSolution {
     return discountedPrice;
   }
 
-  private int applyFreeItemStrategy(HashMap<String, Integer> itemToCount, FreeItemStrategy freeItemStrategy) {
-    int discountedPrice = 0;
+  private void applyFreeItemStrategy(HashMap<String, Integer> itemToCount, FreeItemStrategy freeItemStrategy) {
     String itemName = freeItemStrategy.getItemName();
     Integer itemCount = itemToCount.get(itemName);
-    int numDiscountedItems = itemCount / freeItemStrategy.numOfItems;
-    discountedPrice += numDiscountedItems * freeItemStrategy.discountedPrice;
-    int normalPriceItems = itemCount % freeItemStrategy.numOfItems;
-    itemToCount.put(itemName, normalPriceItems);
-    return discountedPrice;
+    String freeItem = freeItemStrategy.getFreeItemName();
+    itemToCount.put(freeItem, itemToCount.get(freeItem) - (itemCount / freeItemStrategy.numOfItems));
+  }
+
+  private int applyNormalPrice(HashMap<String, Integer> itemToCount) {
+    int sum = 0;
+    for (Map.Entry<String, Integer> entry : itemToCount.entrySet()) {
+      String itemName = entry.getKey();
+      int count = entry.getValue();
+      sum += itemToPrice.get(itemName) * count;
+    }
+    return sum;
   }
 
   public Integer checkout(String skus) {
     StringBuilder str = new StringBuilder(skus);
     HashMap<String, Integer> itemToCount = new HashMap<>();
+    itemToCount.put("A", 0);
+    itemToCount.put("B", 0);
+    itemToCount.put("C", 0);
+    itemToCount.put("D", 0);
+    itemToCount.put("E", 0);
     for (int i = 0; i < skus.length(); i++) {
       String currentItem = String.valueOf(str.charAt(i));
       if (!"ABCD".contains(currentItem)) {
@@ -58,13 +70,13 @@ public class CheckoutSolution {
       }
       itemToCount.put(currentItem, itemToCount.get(currentItem) + 1);
     }
-    int sum = 0;
 
+    int sum = 0;
     for (DiscountStrategy discountStrategy : discountStrategies) {
       sum += applyDiscountStrategy(itemToCount, discountStrategy);
     }
-
-    //    sum += applyPriceStrategy(itemToCount, discountStrategy);
+    applyFreeItemStrategy(itemToCount, freeItemStrategy);
+    return sum + applyNormalPrice(itemToCount);
 
     //    for (Map.Entry<Character, Integer> countEntry : mapCount.entrySet()) {
     //      if (countEntry.getKey() == 'A') {
@@ -75,26 +87,8 @@ public class CheckoutSolution {
     //        } else
     //          sum += countEntry.getValue() * mapPrices.get('A');
     //      }
-    //
-    //      if (countEntry.getKey() == 'B') {
-    //        if (countEntry.getValue() >= 2) {
-    //          int offerPrice = countEntry.getValue() / 2 * 45;
-    //          int restPrice = countEntry.getValue() % 2 * mapPrices.get('B');
-    //          sum += offerPrice + restPrice;
-    //        } else
-    //          sum += countEntry.getValue() * mapPrices.get('B');
-    //      }
-    //
-    //      if (countEntry.getKey() == 'C') {
-    //        sum += countEntry.getValue() * mapPrices.get('C');
-    //      }
-    //
-    //      if (countEntry.getKey() == 'D') {
-    //        sum += countEntry.getValue() * mapPrices.get('D');
-    //      }
-    //    }
-
-    return sum;
+    //    return sum;
   }
 }
+
 
