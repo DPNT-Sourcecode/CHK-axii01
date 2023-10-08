@@ -13,6 +13,7 @@ public class CheckoutSolution {
     itemToPrice.put("C", 20);
     itemToPrice.put("D", 15);
     itemToPrice.put("E", 40);
+    itemToPrice.put("F", 10);
   }
 
   private static final DiscountStrategy discountStrategy1 = new DiscountStrategy("A", 5, 200);
@@ -20,7 +21,8 @@ public class CheckoutSolution {
   private static final DiscountStrategy discountStrategy3 = new DiscountStrategy("B", 2, 45);
   private static final List<DiscountStrategy> discountStrategies = List.of(discountStrategy1, discountStrategy2,
       discountStrategy3);
-  private static final FreeItemStrategy freeItemStrategy = new FreeItemStrategy("E", 2, "B");
+  private static final FreeItemStrategy freeItemStrategy1 = new FreeItemStrategy("E", 2, "B");
+  private static final FreeItemStrategy freeItemStrategy2 = new FreeItemStrategy("F", 2, "F");
 
   private int applyDiscountStrategy(HashMap<String, Integer> itemToCount, DiscountStrategy discountStrategy) {
     int discountedPrice = 0;
@@ -60,6 +62,7 @@ public class CheckoutSolution {
     itemToCount.put("C", 0);
     itemToCount.put("D", 0);
     itemToCount.put("E", 0);
+    itemToCount.put("F", 0);
     for (int i = 0; i < skus.length(); i++) {
       String currentItem = String.valueOf(str.charAt(i));
       if (itemToCount.get(currentItem) == null) {
@@ -68,7 +71,8 @@ public class CheckoutSolution {
       itemToCount.put(currentItem, itemToCount.get(currentItem) + 1);
     }
 
-    applyFreeItemStrategy(itemToCount, freeItemStrategy);
+    applyFreeItemStrategy(itemToCount, freeItemStrategy1);
+    applyFreeItemStrategy(itemToCount, freeItemStrategy2);
     int sum = 0;
     for (DiscountStrategy discountStrategy : discountStrategies) {
       sum += applyDiscountStrategy(itemToCount, discountStrategy);
@@ -76,4 +80,5 @@ public class CheckoutSolution {
     return sum + applyNormalPrice(itemToCount);
   }
 }
+
 
