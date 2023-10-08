@@ -15,8 +15,8 @@ public class CheckoutSolution {
     itemToPrice.put("E", 40);
   }
 
-  private static final DiscountStrategy discountStrategy1 = new DiscountStrategy("A", 3, 130);
-  private static final DiscountStrategy discountStrategy2 = new DiscountStrategy("A", 5, 200);
+  private static final DiscountStrategy discountStrategy1 = new DiscountStrategy("A", 5, 200);
+  private static final DiscountStrategy discountStrategy2 = new DiscountStrategy("A", 3, 130);
   private static final DiscountStrategy discountStrategy3 = new DiscountStrategy("B", 2, 45);
   private static final List<DiscountStrategy> discountStrategies = List.of(discountStrategy1, discountStrategy2,
       discountStrategy3);
@@ -85,6 +85,7 @@ public class CheckoutSolution {
     //    return sum;
   }
 }
+
 
 
 

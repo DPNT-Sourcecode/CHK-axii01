@@ -30,7 +30,7 @@ class CheckoutSolutionTest {
   }
 
   @Test public void checkoutWrong() {
-    assertThat(checkoutSolution.checkout("CDE"), equalTo(-1));
+    assertThat(checkoutSolution.checkout("CDX"), equalTo(-1));
   }
 
   @Test public void checkoutOffers() {
@@ -38,9 +38,9 @@ class CheckoutSolutionTest {
   }
 
   @Test public void checkoutMultipleOffers() {
-    assertThat(checkoutSolution.checkout("AAAAAABB"), equalTo(260+45));
+    assertThat(checkoutSolution.checkout("AAAAAABB"), equalTo(200+50+45));
     assertThat(checkoutSolution.checkout("AAABB"), equalTo(130+45));
-    assertThat(checkoutSolution.checkout("AAAAAAA"), equalTo(260+50));
+    assertThat(checkoutSolution.checkout("AAAAAAAA"), equalTo(200+130));
     assertThat(checkoutSolution.checkout("BBB"), equalTo(45+30));
     assertThat(checkoutSolution.checkout("BBBC"), equalTo(45+30+20));
   }
@@ -49,5 +49,11 @@ class CheckoutSolutionTest {
     assertThat(checkoutSolution.checkout("BBEE"), equalTo(30+80));
     assertThat(checkoutSolution.checkout("BBEEB"), equalTo(45+80));
   }
+
+  @Test public void checkoutMultipleOffersA() {
+    assertThat(checkoutSolution.checkout("AAAAA"), equalTo(200));
+    assertThat(checkoutSolution.checkout("BBEEB"), equalTo(45+80));
+  }
 }
+
 
