@@ -1,5 +1,7 @@
 package befaster.solutions.CHK;
 
+import java.util.HashMap;
+
 public class FreeItemStrategy {
   String itemName;
   int numOfItems;
@@ -22,4 +24,11 @@ public class FreeItemStrategy {
   public String getFreeItemName() {
     return freeItemName;
   }
+
+  public void applyStrategy(HashMap<String, Integer> itemToCount) {
+    Integer itemCount = itemToCount.get(itemName);
+    int freeItemCount = itemToCount.get(freeItemName);
+    itemToCount.put(freeItemName, itemToCount.get(freeItemName) - Math.min((itemCount / numOfItems), freeItemCount));
+  }
 }
+
